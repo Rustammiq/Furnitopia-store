@@ -31,6 +31,132 @@
   }
 }
 
+/* Custom Components */
+@layer components {
+  /* Hero Section */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .hero-content {
+    @apply text-center z-10 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold text-white mb-6;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-furnitopia-primary hover:bg-furnitopia-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-furnitopia-primary font-semibold py-3 px-6 rounded-lg border-2 border-furnitopia-primary transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-furnitopia-dark hover:text-furnitopia-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+  
+  .nav-link.active {
+    @apply text-furnitopia-primary bg-furnitopia-primary/10;
+  }
+
+  /* Feature Grid */
+  .feature-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+  
+  .feature-card {
+    @apply bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center;
+  }
+
+  /* Bed Grid */
+  .bed-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+  
+  .bed-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden;
+  }
+  
+  .model-viewer-container {
+    @apply relative h-64 bg-gray-100 rounded-t-2xl overflow-hidden;
+  }
+  
+  .bed-content {
+    @apply p-6;
+  }
+  
+  .bed-title {
+    @apply text-xl font-bold text-furnitopia-dark mb-2;
+  }
+  
+  .bed-description {
+    @apply text-gray-600 mb-4;
+  }
+  
+  .bed-price {
+    @apply text-2xl font-bold text-furnitopia-primary mb-4;
+  }
+
+  /* AR Button */
+  .ar-button {
+    @apply absolute top-4 right-4 bg-furnitopia-primary text-white p-3 rounded-full shadow-lg hover:bg-furnitopia-primary/90 transition-all duration-300 transform hover:scale-110;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Component Styles */
 @layer components {
   .btn-primary {

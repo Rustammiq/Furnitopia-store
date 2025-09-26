@@ -30,9 +30,21 @@
           </div>
         </div>
         <div class="md:hidden">
-          <button class="text-furnitopia-dark hover:text-furnitopia-primary focus:outline-none">
+          <button id="mobile-menu-button" class="text-furnitopia-dark hover:text-furnitopia-primary focus:outline-none">
             <i class="fas fa-bars text-xl"></i>
           </button>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Home</a>
+          <a href="beds.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Bedden AR</a>
+          <a href="redeem.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Redeem</a>
+          <a href="reviews.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Reviews</a>
+          <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+          <a href="game.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Game</a>
         </div>
       </div>
     </div>
@@ -331,6 +343,11 @@
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-furnitopia-primary text-white p-3 rounded-full shadow-lg hover:bg-furnitopia-primary/90 transition-all duration-300 transform hover:scale-110 hidden">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
   <!-- JavaScript -->
   <script>
     // Model Viewer error handling and performance optimization
@@ -388,12 +405,18 @@
     });
 
     // Mobile menu toggle
-    const mobileMenuButton = document.querySelector('.md\\:hidden button');
-    const mobileMenu = document.querySelector('.md\\:block');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
     
     if (mobileMenuButton && mobileMenu) {
       mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuButton.querySelector('i');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.className = 'fas fa-bars text-xl';
+        } else {
+          icon.className = 'fas fa-times text-xl';
+        }
       });
     }
 
@@ -414,6 +437,24 @@
     // Observe all feature cards
     document.querySelectorAll('.feature-card, .bed-card').forEach(card => {
       observer.observe(card);
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('hidden');
+      } else {
+        backToTopButton.classList.add('hidden');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   </script>
 </body>
