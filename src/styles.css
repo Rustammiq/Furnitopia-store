@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Furnitopia Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Baloo+Chettan:wght@400;500;600;700&display=swap');
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    /* Performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Baloo Chettan', cursive;
+  }
+
+  /* Optimize 3D rendering */
+  model-viewer {
+    contain: layout style paint;
+    will-change: transform;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .btn-primary {
+    @apply bg-furnitopia-primary hover:bg-furnitopia-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-furnitopia;
+  }
+  
+  .btn-secondary {
+    @apply bg-furnitopia-secondary hover:bg-furnitopia-secondary/90 text-furnitopia-dark font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-furnitopia p-6 transition-all duration-300 hover:shadow-furnitopia-lg hover:-translate-y-2;
+  }
+  
+  .ar-card {
+    @apply bg-gradient-to-br from-furnitopia-primary/10 to-furnitopia-secondary/10 backdrop-blur-sm border border-furnitopia-primary/20 rounded-2xl p-6 transition-all duration-500 hover:shadow-furnitopia-lg hover:scale-105;
+  }
+  
+  .model-viewer-container {
+    @apply relative w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden shadow-inner;
+  }
+  
+  .ar-button {
+    @apply absolute top-4 right-4 bg-furnitopia-primary text-white p-3 rounded-full shadow-lg hover:bg-furnitopia-primary/90 transition-all duration-300 transform hover:scale-110 z-10;
+  }
+  
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center bg-gradient-to-br from-furnitopia-primary via-furnitopia-secondary to-furnitopia-light overflow-hidden;
+  }
+  
+  .hero-content {
+    @apply text-center text-white z-10 max-w-4xl mx-auto px-4;
+  }
+  
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up;
+  }
+  
+  .feature-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16;
+  }
+  
+  .feature-card {
+    @apply text-center p-6 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300;
+  }
+  
+  .bed-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12;
+  }
+  
+  .bed-card {
+    @apply bg-white rounded-2xl shadow-furnitopia overflow-hidden transition-all duration-300 hover:shadow-furnitopia-lg hover:-translate-y-2;
+  }
+  
+  .bed-image {
+    @apply w-full h-48 object-cover;
+  }
+  
+  .bed-content {
+    @apply p-6;
+  }
+  
+  .bed-title {
+    @apply text-xl font-bold text-furnitopia-dark mb-2;
+  }
+  
+  .bed-description {
+    @apply text-gray-600 mb-4;
+  }
+  
+  .bed-price {
+    @apply text-2xl font-bold text-furnitopia-primary mb-4;
+  }
+  
+  .nav-link {
+    @apply text-furnitopia-dark hover:text-furnitopia-primary transition-colors duration-300 font-medium;
+  }
+  
+  .nav-link.active {
+    @apply text-furnitopia-primary font-semibold;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-furnitopia-primary to-furnitopia-secondary bg-clip-text text-transparent;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s infinite;
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* AR Specific Styles */
+.model-viewer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}
+
+.ar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ar-overlay:hover {
+  opacity: 1;
+}
+
+.ar-instructions {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    @apply text-4xl;
+  }
+  
+  .hero-subtitle {
+    @apply text-lg;
+  }
+  
+  .feature-grid {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  .bed-grid {
+    @apply grid-cols-1 gap-6;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .card {
+    @apply bg-gray-800 text-white;
+  }
+  
+  .bed-card {
+    @apply bg-gray-800 text-white;
+  }
+}

@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Furnitopia - AR Beddenwinkel</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https:;">
-  <link href="dist/styles.css" rel="stylesheet" type="text/css" />
+  <link href="src/styles.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -139,10 +138,7 @@
               shadow-intensity="1"
               environment-image="neutral"
               auto-rotate
-              rotation-per-second="30deg"
-              interaction-prompt="none"
-              loading="eager"
-              reveal="interaction">
+              rotation-per-second="30deg">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
               <i class="fas fa-cube"></i>
@@ -162,7 +158,7 @@
         <div class="bed-card">
           <div class="model-viewer-container">
             <model-viewer 
-              src="models/bed-model.glb" 
+              src="models/placeholder-bed.glb" 
               alt="Luxe Koningsbed 3D Model"
               ar 
               ar-modes="webxr scene-viewer quick-look"
@@ -171,10 +167,7 @@
               shadow-intensity="1"
               environment-image="neutral"
               auto-rotate
-              rotation-per-second="30deg"
-              interaction-prompt="none"
-              loading="eager"
-              reveal="interaction">
+              rotation-per-second="30deg">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
               <i class="fas fa-cube"></i>
@@ -194,7 +187,7 @@
         <div class="bed-card">
           <div class="model-viewer-container">
             <model-viewer 
-              src="models/bed-model.glb" 
+              src="models/placeholder-bed.glb" 
               alt="Minimalistisch Platform Bed 3D Model"
               ar 
               ar-modes="webxr scene-viewer quick-look"
@@ -203,10 +196,7 @@
               shadow-intensity="1"
               environment-image="neutral"
               auto-rotate
-              rotation-per-second="30deg"
-              interaction-prompt="none"
-              loading="eager"
-              reveal="interaction">
+              rotation-per-second="30deg">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
               <i class="fas fa-cube"></i>
@@ -333,46 +323,6 @@
 
   <!-- JavaScript -->
   <script>
-    // Model Viewer error handling and performance optimization
-    document.addEventListener('DOMContentLoaded', function() {
-      const modelViewers = document.querySelectorAll('model-viewer');
-      
-      modelViewers.forEach(viewer => {
-        // Error handling
-        viewer.addEventListener('error', function(e) {
-          console.log('Model loading error:', e);
-          // Add fallback content
-          const container = viewer.closest('.model-viewer-container');
-          if (container) {
-            container.innerHTML = `
-              <div class="flex items-center justify-center h-full bg-gray-100 rounded-xl">
-                <div class="text-center">
-                  <i class="fas fa-cube text-4xl text-gray-400 mb-2"></i>
-                  <p class="text-gray-500">3D Model wordt geladen...</p>
-                  <button class="ar-button" onclick="alert('AR functionaliteit vereist HTTPS')">
-                    <i class="fas fa-cube"></i>
-                  </button>
-                </div>
-              </div>
-            `;
-          }
-        });
-
-        // Performance optimization - disable auto-rotate when not visible
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.setAttribute('auto-rotate', '');
-            } else {
-              entry.target.removeAttribute('auto-rotate');
-            }
-          });
-        }, { threshold: 0.1 });
-
-        observer.observe(viewer);
-      });
-    });
-
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {

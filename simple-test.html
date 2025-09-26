@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furnitopia AR Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #9d7c60, #d7cbbf);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #9d7c60;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .bed-card {
+            border: 2px solid #9d7c60;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .bed-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .bed-price {
+            font-size: 2rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .ar-button {
+            background: #9d7c60;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .ar-button:hover {
+            background: #8a6b52;
+        }
+        .status {
+            background: #27ae60;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛏️ Furnitopia AR Bedden Test</h1>
+        
+        <div class="status">
+            ✅ Server werkt! Pagina laadt correct.
+        </div>
+
+        <div class="bed-card">
+            <h2 class="bed-title">Modern Tweepersoons Bed</h2>
+            <div class="bed-price">€899</div>
+            <p>Elegant modern bed met premium materialen</p>
+            <button class="ar-button" onclick="testAR()">🔍 Test AR Button</button>
+        </div>
+
+        <div class="bed-card">
+            <h2 class="bed-title">Klassiek Hoofdeinde Bed</h2>
+            <div class="bed-price">€1,299</div>
+            <p>Timeless design met houten hoofdeinde</p>
+            <button class="ar-button" onclick="testAR()">🔍 Test AR Button</button>
+        </div>
+
+        <div class="bed-card">
+            <h2 class="bed-title">Platform Bed</h2>
+            <div class="bed-price">€699</div>
+            <p>Minimalistisch design zonder hoofdeinde</p>
+            <button class="ar-button" onclick="testAR()">🔍 Test AR Button</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="beds.html" style="background: #e74c3c; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-size: 1.1rem;">
+                🚀 Ga naar Volledige AR Pagina
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function testAR() {
+            alert('AR Button werkt! 🎉\n\nVoor echte AR functionaliteit:\n1. Ga naar beds.html\n2. Test op mobiele telefoon\n3. Zorg voor HTTPS voor volledige AR');
+        }
+
+        console.log('✅ Test pagina geladen!');
+        console.log('🌐 Server draait op poort 8080');
+        console.log('📱 Voor AR: test op mobiele telefoon');
+    </script>
+</body>
+</html>

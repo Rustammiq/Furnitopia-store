@@ -1,0 +1,33 @@
+{
+  "name": "furnitopia-store",
+  "version": "1.0.0",
+  "description": "https://ChngYaXuanRenee.github.io/Furnitopia-store/",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "python3 -m http.server 8080",
+    "serve-https": "python3 -m http.server 8443 --bind 0.0.0.0",
+    "css:build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "css:prod": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "@vitejs/plugin-legacy": "^7.2.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "@google/model-viewer": "^4.1.0",
+    "@types/three": "^0.180.0",
+    "three": "^0.180.0"
+  }
+}
