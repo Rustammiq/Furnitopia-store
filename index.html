@@ -142,6 +142,7 @@
         <div class="bed-card">
           <div class="model-viewer-container">
             <model-viewer 
+              poster="img/furniturepic.jpg"
               src="models/simple-bed.glb" 
               alt="Modern Tweepersoons Bed 3D Model"
               ar 
@@ -153,7 +154,6 @@
               auto-rotate
               rotation-per-second="30deg"
               interaction-prompt="none"
-              loading="eager"
               reveal="interaction">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
@@ -174,6 +174,7 @@
         <div class="bed-card">
           <div class="model-viewer-container">
             <model-viewer 
+              poster="img/furniturepic.jpg"
               src="models/bed-model.glb" 
               alt="Luxe Koningsbed 3D Model"
               ar 
@@ -185,7 +186,6 @@
               auto-rotate
               rotation-per-second="30deg"
               interaction-prompt="none"
-              loading="eager"
               reveal="interaction">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
@@ -206,6 +206,7 @@
         <div class="bed-card">
           <div class="model-viewer-container">
             <model-viewer 
+              poster="img/furniturepic.jpg"
               src="models/bed-model.glb" 
               alt="Minimalistisch Platform Bed 3D Model"
               ar 
@@ -217,7 +218,6 @@
               auto-rotate
               rotation-per-second="30deg"
               interaction-prompt="none"
-              loading="eager"
               reveal="interaction">
             </model-viewer>
             <button class="ar-button" onclick="this.closest('model-viewer').activateAR()">
@@ -349,6 +349,8 @@
   </button>
 
   <!-- JavaScript -->
+  <script src="js/secure-random.js"></script>
+  <script src="js/safe-html.js"></script>
   <script>
     // Model Viewer error handling and performance optimization
     document.addEventListener('DOMContentLoaded', function() {
@@ -361,17 +363,10 @@
           // Add fallback content
           const container = viewer.closest('.model-viewer-container');
           if (container) {
-            container.innerHTML = `
-              <div class="flex items-center justify-center h-full bg-gray-100 rounded-xl">
-                <div class="text-center">
-                  <i class="fas fa-cube text-4xl text-gray-400 mb-2"></i>
-                  <p class="text-gray-500">3D Model wordt geladen...</p>
-                  <button class="ar-button" onclick="alert('AR functionaliteit vereist HTTPS')">
-                    <i class="fas fa-cube"></i>
-                  </button>
-                </div>
-              </div>
-            `;
+            // Use SafeHTML to prevent XSS
+            const errorContainer = SafeHTML.createModelErrorContainer('3D Model wordt geladen...');
+            container.innerHTML = '';
+            container.appendChild(errorContainer);
           }
         });
 
